@@ -1,5 +1,5 @@
 # Fast-Food
-A food ordering app which allow users register and order fast food.
+A food ordering app which allow users register and order fast food. Its javascript only(No UI). Created to demonstrate the concept of Object Oriented Programming in javascript.
 
 ### Getting Started
 These instructions bellow will guide you in getting a copy of the project up and running on your local machine for development and testing purposes.
