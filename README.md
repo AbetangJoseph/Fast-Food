@@ -4,6 +4,11 @@ A food ordering app which allow users register and order fast food. Its javascri
 ### Getting Started
 These instructions bellow will guide you in getting a copy of the project up and running on your local machine for development and testing purposes.
 
+### Clone Project
+```
+git clone https://github.com/AbetangJoseph/Fast-Food.git
+```
+
 ### Prerequisites
 You will need to have the following softwares installed on your local machine
 
