@@ -37,4 +37,23 @@ User.prototype.saveAccount = function() {
 User.prototype.placeOrder = function(foodName, quantity) {
    return Order.prototype.placeOrder(foodName, quantity, this.userId);
 };
+
+User.prototype.updateAccountInfo = function(
+   name,
+   password,
+   email,
+   phone,
+   address
+) {
+   let user = DB.USERS.find(user => user.id === this.userId);
+
+   user.name = name || user.name;
+   user.password = password || user.password;
+   user.email = email || user.email;
+   user.phone = phone || user.phone;
+   user.address = address || user.address;
+
+   return "SUCCESS: Record Updated";
+};
+
 module.exports = User;
