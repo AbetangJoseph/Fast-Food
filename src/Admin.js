@@ -10,4 +10,8 @@ function Admin(name, password, email, phone) {
 Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
+Admin.prototype.createFoodItem = function(name, category, price, quantity) {
+   return Food.prototype.createFoodItem(name, category, price, quantity);
+};
+
 module.exports = Admin;
