@@ -14,4 +14,24 @@ Admin.prototype.createFoodItem = function(name, category, price, quantity) {
    return Food.prototype.createFoodItem(name, category, price, quantity);
 };
 
+Admin.prototype.updateFoodItem = function(
+   foodToUpdate,
+   newFoodName,
+   category,
+   price,
+   quantity
+) {
+   return Food.prototype.updateFoodItem(
+      foodToUpdate,
+      newFoodName,
+      category,
+      price,
+      quantity
+   );
+};
+
+Admin.prototype.deleteFoodItem = function(foodId) {
+   return Food.prototype.deleteFoodItem(foodId);
+};
+
 module.exports = Admin;
