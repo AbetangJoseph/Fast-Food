@@ -10,20 +10,20 @@ function Admin(name, password, email, phone) {
 Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
-Admin.prototype.createFoodItem = function(name, category, price, quantity) {
-   return Food.prototype.createFoodItem(name, category, price, quantity);
+Admin.prototype.createFoodItem = function(foodName, category, price, quantity) {
+   return Food.prototype.createFoodItem(foodName, category, price, quantity);
 };
 
 Admin.prototype.updateFoodItem = function(
-   foodToUpdate,
-   newFoodName,
+   foodId,
+   foodName,
    category,
    price,
    quantity
 ) {
    return Food.prototype.updateFoodItem(
-      foodToUpdate,
-      newFoodName,
+      foodId,
+      foodName,
       category,
       price,
       quantity
@@ -33,5 +33,11 @@ Admin.prototype.updateFoodItem = function(
 Admin.prototype.deleteOneFoodItem = function(foodId) {
    return Food.prototype.deleteOneFoodItem(foodId);
 };
+
+Object.defineProperty(Admin.prototype, "deleteAllFoodItem", {
+   get: function() {
+      return Food.prototype.deleteAllFoodItem();
+   }
+});
 
 module.exports = Admin;
