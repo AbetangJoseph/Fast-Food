@@ -40,4 +40,10 @@ Object.defineProperty(Admin.prototype, "deleteAllFoodItem", {
    }
 });
 
+Object.defineProperty(Admin.prototype, "getAllFoodItem", {
+   get: function() {
+      return Food.prototype.getAllFoodItem();
+   }
+});
+
 module.exports = Admin;
