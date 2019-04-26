@@ -59,4 +59,8 @@ Order.prototype.placeOrder = function(foodName, quantity, user_id) {
    } else return "not enough meal";
 };
 
+Order.prototype.getAllFoodOrder = function() {
+   return DB.FOOD.orders.filter(food => food.isDeleted === false);
+};
+
 module.exports = Order;

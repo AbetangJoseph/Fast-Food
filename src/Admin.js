@@ -1,5 +1,6 @@
 const User = require("./User");
 const Food = require("./Food");
+const Order = require("./Order");
 
 function Admin(name, password, email, phone) {
    User.call(this, name, password, email, phone);
@@ -50,4 +51,9 @@ Admin.prototype.getOneFoodItem = function(foodName) {
    return Food.prototype.getOneFoodItem(foodName);
 };
 
+Object.defineProperty(Admin.prototype, "getAllFoodOrder", {
+   get: function() {
+      return Order.prototype.getAllFoodOrder();
+   }
+});
 module.exports = Admin;
