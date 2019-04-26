@@ -60,4 +60,16 @@ Object.defineProperty(Admin.prototype, "getAllFoodOrder", {
 Admin.prototype.deleteOneFoodOrder = function(order_id) {
    return Order.prototype.deleteOneFoodOrder(order_id);
 };
+
+Admin.prototype.deleteOneUser = function(user_id) {
+   let user = DB.USERS.find(
+      user => user.id === user_id && user.isDeleted === false
+   );
+
+   if (!user) return "INFO: No such user";
+   user.isDeleted = true;
+
+   return "SUCCESS: User was deleted";
+};
+
 module.exports = Admin;
