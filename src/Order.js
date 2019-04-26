@@ -51,15 +51,12 @@ Order.prototype.placeOrder = function(foodName, quantity, user_id) {
    const isAvailable = DB.FOOD.foodStore.find(
       food => food.foodName === foodName
    );
-   if (isAvailable) {
-      if (isAvailable.quantity >= quantity) {
-         isAvailable.quantity -= quantity;
-         new Order(foodName, quantity, user_id);
-         return "SUCCESS: Order was successful";
-      } else return "not enough meal";
-   } else {
-      return "no such meal";
-   }
+   if (!isAvailable) return "no such meal";
+   if (isAvailable.quantity >= quantity) {
+      isAvailable.quantity -= quantity;
+      new Order(foodName, quantity, user_id);
+      return "SUCCESS: Order was successful";
+   } else return "not enough meal";
 };
 
 module.exports = Order;
