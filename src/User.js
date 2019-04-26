@@ -13,9 +13,10 @@ function User(name, password, email, phone, address) {
    this.phone = phone;
    this.address = address;
    this.isDeleted = false;
+   this.isAdmin = false;
 }
 
-// Adding Methos to User prototype
+// Adding Methods to User prototype
 User.prototype = {
    constructor: User,
 
@@ -27,7 +28,8 @@ User.prototype = {
          email: this.email,
          phone: this.phone,
          address: this.address,
-         isDeleted: this.isDeleted
+         isDeleted: this.isDeleted,
+         isAdmin: this.isAdmin
       };
 
       DB["USERS"].push(user_payload);
