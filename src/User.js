@@ -1,4 +1,5 @@
 const DB = require("./db");
+const Order = require("./Order");
 
 // User ID
 let userId = 0;
@@ -33,4 +34,7 @@ User.prototype.saveAccount = function() {
    return "SUCCESS: Account Saved";
 };
 
+User.prototype.placeOrder = function(foodName, quantity) {
+   return Order.prototype.placeOrder(foodName, quantity, this.userId);
+};
 module.exports = User;
