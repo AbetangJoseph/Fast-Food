@@ -17,24 +17,20 @@ function User(name, password, email, phone, address) {
 }
 
 // Adding Methods to User prototype
-User.prototype = {
-   constructor: User,
+User.prototype.saveAccount = function() {
+   user_payload = {
+      id: this.userId,
+      name: this.name,
+      password: this.password,
+      email: this.email,
+      phone: this.phone,
+      address: this.address,
+      isDeleted: this.isDeleted,
+      isAdmin: this.isAdmin
+   };
 
-   saveAccount: function() {
-      user_payload = {
-         id: this.userId,
-         name: this.name,
-         password: this.password,
-         email: this.email,
-         phone: this.phone,
-         address: this.address,
-         isDeleted: this.isDeleted,
-         isAdmin: this.isAdmin
-      };
-
-      DB["USERS"].push(user_payload);
-      return "SUCCESS: Account Saved";
-   }
+   DB["USERS"].push(user_payload);
+   return "SUCCESS: Account Saved";
 };
 
 module.exports = User;
