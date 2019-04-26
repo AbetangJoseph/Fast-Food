@@ -56,4 +56,8 @@ Object.defineProperty(Admin.prototype, "getAllFoodOrder", {
       return Order.prototype.getAllFoodOrder();
    }
 });
+
+Admin.prototype.deleteOneFoodOrder = function(order_id) {
+   return Order.prototype.deleteOneFoodOrder(order_id);
+};
 module.exports = Admin;

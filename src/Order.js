@@ -63,4 +63,12 @@ Order.prototype.getAllFoodOrder = function() {
    return DB.FOOD.orders.filter(food => food.isDeleted === false);
 };
 
+Order.prototype.deleteOneFoodOrder = function(order_id) {
+   DB.FOOD.orders.find(food => {
+      if (food.order_id === order_id) {
+         food.isDeleted = true;
+      }
+   });
+   return "SUCCESS: Food Item Deleted";
+};
 module.exports = Order;
