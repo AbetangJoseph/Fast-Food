@@ -46,4 +46,8 @@ Object.defineProperty(Admin.prototype, "getAllFoodItem", {
    }
 });
 
+Admin.prototype.getOneFoodItem = function(foodName) {
+   return Food.prototype.getOneFoodItem(foodName);
+};
+
 module.exports = Admin;

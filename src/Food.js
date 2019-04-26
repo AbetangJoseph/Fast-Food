@@ -64,4 +64,8 @@ Food.prototype.deleteAllFoodItem = function() {
 Food.prototype.getAllFoodItem = function() {
    return DB.FOOD.foodStore.filter(food => food.isDeleted === false);
 };
+
+Food.prototype.getOneFoodItem = function(foodName) {
+   return DB.FOOD.foodStore.find(food => food.foodName === foodName);
+};
 module.exports = Food;
