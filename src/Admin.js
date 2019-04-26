@@ -30,8 +30,8 @@ Admin.prototype.updateFoodItem = function(
    );
 };
 
-Admin.prototype.deleteFoodItem = function(foodId) {
-   return Food.prototype.deleteFoodItem(foodId);
+Admin.prototype.deleteOneFoodItem = function(foodId) {
+   return Food.prototype.deleteOneFoodItem(foodId);
 };
 
 module.exports = Admin;

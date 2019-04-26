@@ -50,7 +50,7 @@ Food.prototype = {
       return "SUCCESS: Food Updated";
    },
 
-   deleteFoodItem: function(foodId) {
+   deleteOneFoodItem: function(foodId) {
       DB.FOOD.foodStore.find(food => {
          if (food.id === foodId) {
             food.isDeleted = true;
