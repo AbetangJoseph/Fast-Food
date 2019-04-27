@@ -72,4 +72,13 @@ Admin.prototype.deleteOneUser = function(user_id) {
    return "SUCCESS: User was deleted";
 };
 
+Object.defineProperty(Admin.prototype, "deleteAllUsers", {
+   get: function() {
+      DB.USERS.map(users =>
+         users.isAdmin !== true ? (users.isDeleted = true) : users
+      );
+      return "SUCCESS: All Users was deleted"
+   }
+});
+
 module.exports = Admin;
