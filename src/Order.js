@@ -71,4 +71,37 @@ Order.prototype.deleteOneFoodOrder = function(order_id) {
    });
    return "SUCCESS: Food Item Deleted";
 };
+
+Order.prototype.updateFoodOrder = function(foodName, quantity, user_id) {
+   const isAvailable = DB.FOOD.foodStore.find(
+      food => food.foodName === foodName && food.isDeleted === false
+   );
+   if (!isAvailable) return "INFO: No such meal";
+
+   let order = DB.FOOD.orders.find(
+      order =>
+         order.user_id === user_id &&
+         order.foodName === foodName &&
+         order.isDeleted === false
+   );
+
+   isAvailable.quantity += order.quantity;
+
+   if (isAvailable.quantity >= quantity) {
+      isAvailable.quantity -= quantity;
+      let order = DB.FOOD.orders.find(
+         order =>
+            order.user_id === user_id &&
+            order.foodName === foodName &&
+            order.isDeleted === false
+      );
+
+      order.foodName = foodName || order.foodName;
+      order.quantity = quantity || order.quantity;
+      return "SUCCESS: Record Updated";
+   } else {
+      return "not enough meal";
+   }
+};
+
 module.exports = Order;

@@ -56,4 +56,8 @@ User.prototype.updateAccountInfo = function(
    return "SUCCESS: Record Updated";
 };
 
+User.prototype.updateFoodOrder = function(foodName, quantity) {
+  return Order.prototype.updateFoodOrder(foodName, quantity, this.userId);
+};
+
 module.exports = User;
