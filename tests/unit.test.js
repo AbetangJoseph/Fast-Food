@@ -139,3 +139,11 @@ describe("USER CAN UPDATE ORDER", function() {
       expect(user2.updateFoodOrder("yoghurt", 19)).toMatch("not enough meal");
    });
 });
+
+describe("ADMIN CAN DELETE ONE AND ALL USERS", function() {
+   it("Should return all orders", function() {
+      expect(admin1.deleteOneUser(2)).toMatch("SUCCESS: User was deleted");
+      expect(admin1.deleteOneUser()).toMatch("INFO: No such user");
+      expect(admin1.deleteAllUsers).toMatch("SUCCESS: All Users was deleted");
+   });
+});
