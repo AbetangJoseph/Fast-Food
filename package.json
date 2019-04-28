@@ -1,0 +1,29 @@
+{
+  "name": "Fast-Food",
+  "version": "1.0.0",
+  "description": "A food ordering app which allow users register and order fast food. Its javascript only(No UI). Created to demonstrate the concept of Object Oriented Programming in javascript.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbetangJoseph/Fast-Food.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbetangJoseph/Fast-Food/issues"
+  },
+  "homepage": "https://github.com/AbetangJoseph/Fast-Food#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.11"
+  }
+}
