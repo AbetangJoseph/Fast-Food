@@ -99,3 +99,15 @@ describe("USER CAN PLACE NEW ORDER", function() {
       expect(user2.placeOrder("yoghurt", 12)).toMatch("INFO: Not enough meal");
    });
 });
+
+describe("USER CAN UPDATE ACCOUNT INFO", function() {
+   it("Should return a value when called", function() {
+      expect(user1.updateAccountInfo()).toBeDefined();
+   });
+
+   it("Should return success when record is updated", function() {
+      expect(user1.updateAccountInfo("Victor", "pass01")).toMatch(
+         "SUCCESS: Record Updated"
+      );
+   });
+});
