@@ -51,12 +51,13 @@ Order.prototype.placeOrder = function(foodName, quantity, user_id) {
    const isAvailable = DB.FOOD.foodStore.find(
       food => food.foodName === foodName
    );
-   if (!isAvailable) return "no such meal";
+   if (!isAvailable) return "INFO: No such meal";
    if (isAvailable.quantity >= quantity) {
       isAvailable.quantity -= quantity;
       new Order(foodName, quantity, user_id);
+
       return "SUCCESS: Order was successful";
-   } else return "not enough meal";
+   } else return "INFO: Not enough meal";
 };
 
 Order.prototype.getAllFoodOrder = function() {
@@ -64,11 +65,10 @@ Order.prototype.getAllFoodOrder = function() {
 };
 
 Order.prototype.deleteOneFoodOrder = function(order_id) {
-   DB.FOOD.orders.find(food => {
-      if (food.order_id === order_id) {
-         food.isDeleted = true;
-      }
-   });
+   let foodItem = DB.FOOD.orders.find(food => food.order_id === order_id);
+
+   if (!foodItem) return "INFO: Food Item not found";
+   foodItem.isDeleted = true;
    return "SUCCESS: Food Item Deleted";
 };
 
@@ -87,7 +87,9 @@ Order.prototype.updateFoodOrder = function(foodName, quantity, user_id) {
 
    isAvailable.quantity += order.quantity;
 
-   if (isAvailable.quantity >= quantity) {
+   if (isAvailable.quantity < quantity) {
+      return "not enough meal";
+   } else {
       isAvailable.quantity -= quantity;
       let order = DB.FOOD.orders.find(
          order =>
@@ -96,11 +98,8 @@ Order.prototype.updateFoodOrder = function(foodName, quantity, user_id) {
             order.isDeleted === false
       );
 
-      order.foodName = foodName || order.foodName;
       order.quantity = quantity || order.quantity;
       return "SUCCESS: Record Updated";
-   } else {
-      return "not enough meal";
    }
 };
 

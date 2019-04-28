@@ -57,7 +57,7 @@ User.prototype.updateAccountInfo = function(
 };
 
 User.prototype.updateFoodOrder = function(foodName, quantity) {
-  return Order.prototype.updateFoodOrder(foodName, quantity, this.userId);
+   return Order.prototype.updateFoodOrder(foodName, quantity, this.userId);
 };
 
 module.exports = User;

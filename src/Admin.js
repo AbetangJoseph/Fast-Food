@@ -77,7 +77,7 @@ Object.defineProperty(Admin.prototype, "deleteAllUsers", {
       DB.USERS.map(users =>
          users.isAdmin !== true ? (users.isDeleted = true) : users
       );
-      return "SUCCESS: All Users was deleted"
+      return "SUCCESS: All Users was deleted";
    }
 });
 
