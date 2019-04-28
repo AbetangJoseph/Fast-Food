@@ -26,7 +26,8 @@ function Food(foodName, category, price, quantity) {
 
 // Adding Methods to Food prototype
 Food.prototype.createFoodItem = function(foodName, category, price, quantity) {
-   return new Food(foodName, category, price, quantity);
+   new Food(foodName, category, price, quantity);
+   return "SUCCESS: Food Added";
 };
 
 Food.prototype.updateFoodItem = function(
