@@ -68,3 +68,34 @@ describe("ADMIN CAN GETALL, UPDATE, DELETE", function() {
       });
    });
 });
+
+describe("CREATE NEW USER", function() {
+   const savedUser1 = user1.saveAccount();
+   it("Should return a value when called", function() {
+      expect(savedUser1).toBeDefined();
+   });
+
+   it("Should return a success message when saved", function() {
+      expect(savedUser1).toMatch("SUCCESS: Account Saved");
+   });
+});
+
+describe("USER CAN PLACE NEW ORDER", function() {
+   it("Should return a success message when order", function() {
+      expect(user1.placeOrder()).toMatch("INFO: No such meal");
+
+      expect(user1.placeOrder("rice", 5)).toMatch(
+         "SUCCESS: Order was successful"
+      );
+
+      expect(user1.placeOrder("Orange", 8)).toMatch(
+         "SUCCESS: Order was successful"
+      );
+
+      expect(user2.placeOrder("yoghurt", 2)).toMatch(
+         "SUCCESS: Order was successful"
+      );
+
+      expect(user2.placeOrder("yoghurt", 12)).toMatch("INFO: Not enough meal");
+   });
+});
