@@ -111,3 +111,18 @@ describe("USER CAN UPDATE ACCOUNT INFO", function() {
       );
    });
 });
+
+describe("ADMIN CAN GET ALL ORDERS AND DELETE ONE", function() {
+   it("Should return all orders", function() {
+      expect(admin1.getAllFoodOrder.length).toBeGreaterThan(0);
+   });
+
+   it("Should delete one order", function() {
+      expect(admin1.deleteOneFoodOrder(2)).toMatch(
+         "SUCCESS: Food Item Deleted"
+      );
+      expect(admin1.deleteOneFoodOrder(21)).toMatch(
+         "INFO: Food Item not found"
+      );
+   });
+});
