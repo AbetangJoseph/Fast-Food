@@ -126,3 +126,16 @@ describe("ADMIN CAN GET ALL ORDERS AND DELETE ONE", function() {
       );
    });
 });
+
+describe("USER CAN UPDATE ORDER", function() {
+   it("Should update order", function() {
+      expect(user1.updateFoodOrder("yam", 1)).toMatch("INFO: No such meal");
+      expect(user1.updateFoodOrder("rice", "")).toMatch(
+         "SUCCESS: Record Updated"
+      );
+      expect(user1.updateFoodOrder("rice", 3)).toMatch(
+         "SUCCESS: Record Updated"
+      );
+      expect(user2.updateFoodOrder("yoghurt", 19)).toMatch("not enough meal");
+   });
+});
