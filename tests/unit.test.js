@@ -38,3 +38,33 @@ describe("ADMIN CAN CREATE FOOD ITEM", function() {
       );
    });
 });
+
+describe("ADMIN CAN GETALL, UPDATE, DELETE", function() {
+   it("Should return values for all operation", function() {
+      expect(admin1.getAllFoodItem).toBeDefined();
+      expect(admin1.getAllFoodItem.length).toBeGreaterThan(0);
+      expect(admin1.getAllFoodItem).toContainEqual({
+         id: 1,
+         foodName: "rice",
+         category: "grains",
+         price: 500,
+         quantity: 18,
+         isDeleted: false
+      });
+      expect(admin1.updateFoodItem(2, "rice", "grains", 400, 10)).toMatch(
+         "SUCCESS: Food Updated"
+      );
+      expect(admin1.updateFoodItem(4, "", "", "", "")).toMatch(
+         "SUCCESS: Food Updated"
+      );
+      expect(admin1.deleteOneFoodItem(4)).toMatch("SUCCESS: Food Item Deleted");
+      expect(admin1.getOneFoodItem("yoghurt")).toEqual({
+         category: "dairy",
+         foodName: "yoghurt",
+         id: 3,
+         isDeleted: false,
+         price: 600,
+         quantity: 8
+      });
+   });
+});
