@@ -147,3 +147,11 @@ describe("ADMIN CAN DELETE ONE AND ALL USERS", function() {
       expect(admin1.deleteAllUsers).toMatch("SUCCESS: All Users was deleted");
    });
 });
+
+describe("ADMIN CAN DELETE ALL FOOD ITEMS", function() {
+   it("Should delete all foodItems", function() {
+      expect(admin1.deleteAllFoodItem).toMatch(
+         "SUCCESS: All Food Items Deleted"
+      );
+   });
+});
